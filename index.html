@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTogo - Recherche éducative</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f7ff;
+      color: #17324d;
+    }
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 22px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    input, select, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input, select {
+      border: 1px solid #bbb;
+      background: white;
+    }
+    button {
+      background: #087f5b;
+      color: white;
+      border: 0;
+      font-weight: bold;
+    }
+    .carte {
+      background: white;
+      padding: 16px;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EduTogo</h1>
+    <p>Recherche éducative au Togo</p>
+  </header>
+
+  <div class="carte">
+    <h2>Que veux-tu apprendre ?</h2>
+    <input id="recherche" placeholder="Ex. mathématiques, français...">
+    <select id="type">
+      <option value="cours">Cours</option>
+      <option value="exercices">Exercices</option>
+    </select>
+    <button onclick="chercher()">Rechercher</button>
+    <div id="resultats"></div>
+  </div>
+
+  <script>
+    const ressources = [
+      {matiere:"Mathématiques", type:"cours", titre:"Cours de mathématiques",
+       url:"https://www.google.com/search?q=cours+mathématiques+Togo"},
+      {matiere:"Mathématiques", type:"exercices", titre:"Exercices de mathématiques",
+       url:"https://www.google.com/search?q=exercices+mathématiques+Togo"},
+      {matiere:"Français", type:"cours", titre:"Cours de français",
+       url:"https://www.google.com/search?q=cours+français+Togo"},
+      {matiere:"Français", type:"exercices", titre:"Exercices de français",
+       url:"https://www.google.com/search?q=exercices+français+Togo"},
+      {matiere:"Philosophie", type:"cours", titre:"Cours de philosophie",
+       url:"https://www.google.com/search?q=cours+philosophie+terminale"},
+      {matiere:"Philosophie", type:"exercices", titre:"Exercices de philosophie",
+       url:"https://www.google.com/search?q=exercices+philosophie+terminale"},
+      {matiere:"Histoire", type:"cours", titre:"Cours d'histoire",
+       url:"https://www.google.com/search?q=cours+histoire+Togo"},
+      {matiere:"Géographie", type:"cours", titre:"Cours de géographie",
+       url:"https://www.google.com/search?q=cours+géographie+Togo"}
+    ];
+
+    function chercher() {
+      const mot = document.getElementById("recherche").value.toLowerCase().trim();
+      const type = document.getElementById("type").value;
+      const resultat = ressources.filter(r =>
+        r.matiere.toLowerCase().includes(mot) && r.type === type
+      );
+      const zone = document.getElementById("resultats");
+      if (!resultat.length) {
+        zone.innerHTML = "<p>Essaie une matière comme mathématiques, français ou philosophie.</p>";
+        return;
+      }
+      zone.innerHTML = resultat.map(r =>
+        `<p><a href="${r.url}" target="_blank">${r.titre}</a></p>`
+      ).join("");
+    }
+  </script>
+</body>
+</html>
