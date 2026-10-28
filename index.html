@@ -94,9 +94,11 @@
         zone.innerHTML = "<p>Essaie une matière comme mathématiques, français ou philosophie.</p>";
         return;
       }
-      zone.innerHTML = resultat.map(r =>
-        `<p><a href="${r.url}" target="_blank">${r.titre}</a></p>`
-      ).join("");
+      
+zone.innerHTML = resultat.map(r =>
+  `<p><strong>${r.titre}</strong></p>`
+).join("");
+      ;
     }
   </script>
 <div id="resultatsEduTogo"></div>
