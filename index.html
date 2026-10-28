@@ -93,7 +93,9 @@
       const mot = document.getElementById("recherche").value.toLowerCase().trim();
       const type = document.getElementById("type").value;
       const resultat = ressources.filter(r =>
-        r.matiere.toLowerCase().includes(mot) && r.type === type
+  (r.matiere.toLowerCase().includes(mot) ||
+   r.titre.toLowerCase().includes(mot)) &&
+  r.type === type 
       );
       const zone = document.getElementById("resultats");
       if (!resultat.length) {
