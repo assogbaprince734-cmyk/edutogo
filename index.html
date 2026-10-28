@@ -3,107 +3,398 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f5b">
+  <meta name="description" content="EduTogo : recherche de cours et exercices scolaires au Togo.">
   <title>EduTogo - Recherche éducative</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 16px;
       background: #f0f7ff;
       color: #17324d;
     }
+
     header {
       background: #087f5b;
       color: white;
-      padding: 22px;
-      border-radius: 12px;
+      padding: 24px 12px;
+      border-radius: 14px;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    main {
+      max-width: 650px;
+      margin: 18px auto;
+    }
+
+    .carte {
+      background: white;
+      padding: 18px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #17324d12;
+    }
+
     input, select, button {
-      box-sizing: border-box;
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       margin-top: 12px;
       border-radius: 8px;
       font-size: 16px;
     }
+
     input, select {
-      border: 1px solid #bbb;
+      border: 1px solid #b8c7d1;
       background: white;
+      color: #17324d;
     }
+
     button {
       background: #087f5b;
       color: white;
-      border: 0;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      opacity: 0.8;
+    }
+
+    .secondaire {
+      background: #e5f5ee;
+      color: #087f5b;
+      border: 1px solid #087f5b;
+    }
+
+    .resultat {
+      border: 1px solid #dce8e2;
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .resultat h3 {
+      margin-top: 0;
+    }
+
+    .resultat a {
+      color: #087f5b;
       font-weight: bold;
     }
-    .carte {
-      background: white;
-      padding: 16px;
-      margin-top: 15px;
-      border-radius: 10px;
+
+    .petit {
+      color: #526575;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 5px;
+      color: #526575;
+      font-size: 13px;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>EduTogo</h1>
-    <p>Recherche éducative au Togo</p>
+    <h1>EduTogo 📚</h1>
+    <p>Apprendre, réviser et réussir au Togo !</p>
   </header>
 
-  <div class="carte">
-    <h2>Que veux-tu apprendre ?</h2>
-    <input id="recherche" placeholder="Ex. mathématiques, français...">
-    <select id="type">
-      <option value="cours">Cours</option>
-      <option value="exercices">Exercices</option>
-   <option value="actualites">Actualités</option>
-    </select>
-    <button onclick="chercher()">Rechercher</button>
-    <div id="resultats"></div>
-  </div>
+  <main>
+    <section class="carte">
+      <h2>Que veux-tu apprendre ?</h2>
+      <p class="petit">
+        Recherche un cours, un exercice ou une actualité éducative.
+      </p>
+
+      <form id="formRecherche">
+        <input
+          id="recherche"
+          type="search"
+          placeholder="Ex. mathématiques, français..."
+          aria-label="Matière à rechercher"
+        >
+
+        <select id="type" aria-label="Type de ressource">
+          <option value="cours">Cours</option>
+          <option value="exercices">Exercices</option>
+          <option value="actualites">Actualités</option>
+        </select>
+
+        <button type="submit">Rechercher</button>
+      </form>
+
+      <button type="button" class="secondaire"
+        id="boutonInternet">
+        Rechercher sur Internet
+      </button>
+
+      <p class="petit">
+        La recherche Internet ouvre les résultats d'un moteur de recherche.
+      </p>
+    </section>
+
+    <section class="carte">
+      <h2>Résultats de recherche</h2>
+      <div id="resultats" aria-live="polite">
+        <p class="petit">
+          Choisis une matière et appuie sur Rechercher.
+        </p>
+      </div>
+    </section>
+
+    <section class="carte">
+      <h2>Sites utiles</h2>
+      <p>
+        <a href="https://education.gouv.tg/" target="_blank"
+          rel="noopener noreferrer">
+          Ministère de l'Éducation du Togo
+        </a>
+      </p>
+      <p>
+        <a href="https://www.republicoftogo.com/" target="_blank"
+          rel="noopener noreferrer">
+          Actualités du Togo
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    EduTogo — La connaissance accessible à tous.
+  </footer>
 
   <script>
-    
-const ressources = [
-  {matiere:"Mathématiques", type:"cours", titre:"Cours de mathématiques", url:"#"},
-  {matiere:"Mathématiques", type:"exercices", titre:"Exercices de mathématiques", url:"#"},
-  {matiere:"Français", type:"cours", titre:"Cours de français", url:"#"},
-  {matiere:"Français", type:"exercices", titre:"Exercices de français", url:"#"},
-  {matiere:"Anglais", type:"cours", titre:"Cours d'anglais", url:"#"},
-  {matiere:"Anglais", type:"exercices", titre:"Exercices d'anglais", url:"#"},
-  {matiere:"Philosophie", type:"cours", titre:"Cours de philosophie", url:"#"},
-  {matiere:"Philosophie", type:"exercices", titre:"Exercices de philosophie", url:"#"},
-  {matiere:"Histoire", type:"cours", titre:"Cours d'histoire", url:"#"},
-  {matiere:"Géographie", type:"cours", titre:"Cours de géographie", url:"#"},
-  {matiere:"Actualités", type:"actualites", titre:"Actualités de l'éducation au Togo", url:"https://education.gouv.tg/"},
-  {matiere:"Actualités", type:"actualites", titre:"Actualités générales du Togo", url:"https://www.republicoftogo.com/"}
-];
-    
-function chercher() {
-  const mot = document.getElementById("recherche").value.toLowerCase().trim();
-  const type = document.getElementById("type").value;
-  const zone = document.getElementById("resultats");
+    const ressources = [
+      {
+        matiere: "Mathématiques",
+        type: "cours",
+        titre: "Cours de mathématiques",
+        description: "Leçons et notions de mathématiques.",
+        recherche: "cours mathématiques programme scolaire Togo"
+      },
+      {
+        matiere: "Mathématiques",
+        type: "exercices",
+        titre: "Exercices de mathématiques",
+        description: "Exercices pour réviser et s'entraîner.",
+        recherche: "exercices corrigés mathématiques lycée"
+      },
+      {
+        matiere: "Français",
+        type: "cours",
+        titre: "Cours de français",
+        description: "Grammaire, conjugaison et littérature.",
+        recherche: "cours de français lycée grammaire littérature"
+      },
+      {
+        matiere: "Français",
+        type: "exercices",
+        titre: "Exercices de français",
+        description: "Entraînement en grammaire et expression.",
+        recherche: "exercices corrigés français lycée"
+      },
+      {
+        matiere: "Anglais",
+        type: "cours",
+        titre: "Cours d'anglais",
+        description: "Vocabulaire et grammaire anglaise.",
+        recherche: "cours anglais lycée grammaire vocabulaire"
+      },
+      {
+        matiere: "Anglais",
+        type: "exercices",
+        titre: "Exercices d'anglais",
+        description: "Pratique de la langue anglaise.",
+        recherche: "exercices corrigés anglais lycée"
+      },
+      {
+        matiere: "Philosophie",
+        type: "cours",
+        titre: "Cours de philosophie",
+        description: "Notions, auteurs et méthodes.",
+        recherche: "cours philosophie terminale notions auteurs"
+      },
+      {
+        matiere: "Philosophie",
+        type: "exercices",
+        titre: "Exercices de philosophie",
+        description: "Sujets de dissertation et explication de texte.",
+        recherche: "sujets corrigés philosophie terminale"
+      },
+      {
+        matiere: "Histoire",
+        type: "cours",
+        titre: "Cours d'histoire",
+        description: "Leçons d'histoire pour les élèves.",
+        recherche: "cours histoire lycée Afrique Togo"
+      },
+      {
+        matiere: "Histoire",
+        type: "exercices",
+        titre: "Exercices d'histoire",
+        description: "Questions et sujets de révision.",
+        recherche: "exercices histoire lycée corrigés"
+      },
+      {
+        matiere: "Géographie",
+        type: "cours",
+        titre: "Cours de géographie",
+        description: "Géographie générale et géographie du Togo.",
+        recherche: "cours géographie Togo lycée"
+      },
+      {
+        matiere: "Géographie",
+        type: "exercices",
+        titre: "Exercices de géographie",
+        description: "Questions et exercices de révision.",
+        recherche: "exercices géographie lycée corrigés"
+      },
+      {
+        matiere: "Sciences",
+        type: "cours",
+        titre: "Cours de sciences",
+        description: "Notions scientifiques et révisions.",
+        recherche: "cours sciences physiques lycée"
+      },
+      {
+        matiere: "Sciences",
+        type: "exercices",
+        titre: "Exercices de sciences",
+        description: "Exercices scientifiques corrigés.",
+        recherche: "exercices corrigés sciences physiques lycée"
+      },
+      {
+        matiere: "Actualités",
+        type: "actualites",
+        titre: "Actualités de l'éducation au Togo",
+        description: "Informations sur l'éducation.",
+        url: "https://education.gouv.tg/"
+      },
+      {
+        matiere: "Actualités",
+        type: "actualites",
+        titre: "Actualités générales du Togo",
+        description: "Informations nationales.",
+        url: "https://www.republicoftogo.com/"
+      }
+    ];
 
-  const resultat = ressources.filter(r =>
-    (r.matiere.toLowerCase().includes(mot) ||
-     r.titre.toLowerCase().includes(mot)) &&
-    r.type === type
-  );
+    const formulaire = document.getElementById("formRecherche");
+    const champ = document.getElementById("recherche");
+    const selectType = document.getElementById("type");
+    const zone = document.getElementById("resultats");
+    const boutonInternet = document.getElementById("boutonInternet");
 
-  if (!resultat.length) {
-    zone.innerHTML = "<p>Aucun résultat trouvé. Essaie une autre recherche.</p>";
-    return;
-  }
+    function normaliser(texte) {
+      return texte
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
 
-  zone.innerHTML = resultat.map(r =>
-    `<p><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.titre}</a></p>`
-  ).join("");
-}
-    
-  
+    function chercher() {
+      const mot = normaliser(champ.value);
+      const type = selectType.value;
+
+      const trouves = ressources.filter(function(r) {
+        const matiere = normaliser(r.matiere);
+        const titre = normaliser(r.titre);
+        const description = normaliser(r.description);
+
+        const correspond =
+          mot === "" ||
+          matiere.includes(mot) ||
+          titre.includes(mot) ||
+          description.includes(mot);
+
+        return correspond && r.type === type;
+      });
+
+      if (trouves.length === 0) {
+        zone.innerHTML =
+          "<p>Aucun résultat trouvé. Essaie une autre matière.</p>";
+        return;
+      }
+
+      zone.replaceChildren();
+
+      trouves.forEach(function(r) {
+        const carte = document.createElement("article");
+        carte.className = "resultat";
+
+        const titre = document.createElement("h3");
+        titre.textContent = r.titre;
+
+        const description = document.createElement("p");
+        description.textContent = r.description;
+
+        const lien = document.createElement("a");
+        lien.textContent = r.type === "actualites"
+          ? "Consulter le site"
+          : "Trouver les ressources";
+
+        lien.href = r.url ||
+          "https://www.google.com/search?q=" +
+          encodeURIComponent(r.recherche);
+
+        lien.target = "_blank";
+        lien.rel = "noopener noreferrer";
+
+        carte.append(titre, description, lien);
+        zone.appendChild(carte);
+      });
+    }
+
+    formulaire.addEventListener("submit", function(event) {
+      event.preventDefault();
+      chercher();
+    });
+
+    boutonInternet.addEventListener("click", function() {
+      const mot = champ.value.trim();
+      const type = selectType.value;
+
+      if (!mot) {
+        champ.focus();
+        zone.textContent = "Écris d'abord une matière à rechercher.";
+        return;
+      }
+
+      const categorie = type === "cours" ? "cours" :
+        type === "exercices" ? "exercices corrigés" : "actualités";
+
+      const requete = mot + " " + categorie + " Togo";
+
+      window.open(
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(requete),
+        "_blank"
+      );
+    });
   </script>
-<div id="resultatsEduTogo"></div>
 </body>
-</html>
+  </html>
+  
