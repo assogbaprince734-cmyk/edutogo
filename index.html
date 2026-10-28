@@ -81,8 +81,6 @@ const ressources = [
   {matiere:"Actualités", type:"actualites", titre:"Actualités générales du Togo", url:"https://www.republicoftogo.com/"}
 ];
     
-
-    
 function chercher() {
   const mot = document.getElementById("recherche").value.toLowerCase().trim();
   const type = document.getElementById("type").value;
@@ -103,6 +101,7 @@ function chercher() {
     `<p><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.titre}</a></p>`
   ).join("");
 }
+    
   
   </script>
 <div id="resultatsEduTogo"></div>
