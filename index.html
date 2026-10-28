@@ -89,25 +89,28 @@
  titre:"Actualités générales du Togo",
  url:"https://www.republicoftogo.com/"}
 
-    function chercher() {
-      const mot = document.getElementById("recherche").value.toLowerCase().trim();
-      const type = document.getElementById("type").value;
-      const resultat = ressources.filter(r =>
-  (r.matiere.toLowerCase().includes(mot) ||
-   r.titre.toLowerCase().includes(mot)) &&
-  r.type === type 
-      );
-      const zone = document.getElementById("resultats");
-      if (!resultat.length) {
-        zone.innerHTML = "<p>Essaie une matière comme mathématiques, français ou philosophie.</p>";
-        return;
-      }
-      
-zone.innerHTML = resultat.map(r =>
-  `<p><strong>${r.titre}</strong></p>`
-).join("");
-      ;
-    }
+    
+function chercher() {
+  const mot = document.getElementById("recherche").value.toLowerCase().trim();
+  const type = document.getElementById("type").value;
+  const zone = document.getElementById("resultats");
+
+  const resultat = ressources.filter(r =>
+    (r.matiere.toLowerCase().includes(mot) ||
+     r.titre.toLowerCase().includes(mot)) &&
+    r.type === type
+  );
+
+  if (!resultat.length) {
+    zone.innerHTML = "<p>Aucun résultat trouvé. Essaie une autre recherche.</p>";
+    return;
+  }
+
+  zone.innerHTML = resultat.map(r =>
+    `<p><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.titre}</a></p>`
+  ).join("");
+}
+  
   </script>
 <div id="resultatsEduTogo"></div>
 </body>
