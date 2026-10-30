@@ -258,6 +258,77 @@
 
   <h3 id="resultat-quiz-maths"></h3>
  </section>                                    
+<section class="carte" id="cours-philo">
+  <h2>📚 Cours de philosophie</h2>
+  <h3>Chapitre 1 : Introduction à la philosophie</h3>
+
+  <h3>1. Définition</h3>
+  <p>
+    La philosophie est une réflexion critique sur l'homme,
+    le monde et la vie. Elle cherche à comprendre les choses
+    par la raison et le questionnement.
+  </p>
+
+  <h3>2. Le rôle de la philosophie</h3>
+  <ul>
+    <li>Développer l'esprit critique.</li>
+    <li>Apprendre à réfléchir par soi-même.</li>
+    <li>Rechercher la vérité.</li>
+    <li>Comprendre les problèmes de la société.</li>
+  </ul>
+
+  <h3>3. Philosophie et science</h3>
+  <p>
+    La science étudie des phénomènes à l'aide de méthodes
+    d'observation et d'expérimentation. La philosophie
+    examine aussi les questions fondamentales et les idées
+    qui orientent notre compréhension du monde.
+  </p>
+
+  <h3>4. Exercice d'application</h3>
+  <p>Explique pourquoi la philosophie développe l'esprit critique.</p>
+
+  <button type="button" onclick="document.getElementById('correction-philo').style.display='block'">
+    Voir la correction
+  </button>
+
+  <p id="correction-philo" style="display:none;">
+    Correction : la philosophie développe l'esprit critique
+    parce qu'elle nous apprend à questionner les idées,
+    examiner les arguments et construire notre propre jugement.
+  </p>
+
+  <h3>5. Petit quiz</h3>
+  <form id="quiz-philo">
+    <p><strong>1. La philosophie utilise principalement :</strong></p>
+    <label><input type="radio" name="p1" value="a"> La réflexion et la raison</label><br>
+    <label><input type="radio" name="p1" value="b"> La force physique</label><br>
+    <label><input type="radio" name="p1" value="c"> Le hasard</label>
+
+    <p><strong>2. La philosophie nous apprend à :</strong></p>
+    <label><input type="radio" name="p2" value="a"> Éviter les questions</label><br>
+    <label><input type="radio" name="p2" value="b"> Réfléchir par nous-mêmes</label><br>
+    <label><input type="radio" name="p2" value="c"> Tout accepter sans réfléchir</label>
+
+    <p><strong>3. La science étudie notamment :</strong></p>
+    <label><input type="radio" name="p3" value="a"> Les phénomènes observables</label><br>
+    <label><input type="radio" name="p3" value="b"> Uniquement les opinions</label><br>
+    <label><input type="radio" name="p3" value="c"> Les rêves seulement</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-philo');
+      const r = ['a','b','a'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=p'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-philo').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-philo"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
