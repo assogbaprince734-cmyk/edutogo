@@ -563,6 +563,74 @@
 
   <h3 id="resultat-anglais"></h3>
 </section>
+<section class="carte" id="cours-francais">
+  <h2>🇫🇷 Cours de français</h2>
+  <h3>Chapitre 1 : Les bases de la grammaire</h3>
+
+  <h3>1. Les différentes classes de mots</h3>
+  <ul>
+    <li>Le nom : désigne une personne, un animal ou une chose.</li>
+    <li>Le verbe : exprime une action ou un état.</li>
+    <li>L'adjectif : donne une précision sur le nom.</li>
+    <li>Le pronom : remplace un nom.</li>
+    <li>L'adverbe : précise le sens d'un verbe, d'un adjectif ou d'un autre adverbe.</li>
+  </ul>
+
+  <h3>2. Les temps de conjugaison</h3>
+  <p>Le présent exprime une action actuelle.</p>
+  <p>L'imparfait exprime souvent une action passée qui durait ou se répétait.</p>
+  <p>Le passé composé exprime une action passée et terminée.</p>
+  <p>Le futur simple exprime une action qui aura lieu plus tard.</p>
+
+  <h3>3. L'orthographe</h3>
+  <p>Il faut respecter les règles d'accord du sujet avec le verbe et les règles d'accord de l'adjectif avec le nom.</p>
+  <p>Exemple : Les élèves sérieux travaillent.</p>
+
+  <h3>4. La compréhension de texte</h3>
+  <p>Pour comprendre un texte, il faut lire attentivement, identifier le thème, repérer les idées principales et comprendre le vocabulaire.</p>
+
+  <h3>5. Exercice d'application</h3>
+  <p>Dans la phrase « Les élèves travaillent sérieusement », identifie le verbe.</p>
+
+  <button type="button" onclick="document.getElementById('correction-francais').style.display='block'">
+    Voir la correction
+  </button>
+
+  <p id="correction-francais" style="display:none;">
+    Correction : le verbe est « travaillent ».
+  </p>
+
+  <h3>6. Quiz de français</h3>
+  <form id="quiz-francais">
+    <p><strong>1. Quel mot est un verbe ?</strong></p>
+    <label><input type="radio" name="f1" value="a"> Maison</label><br>
+    <label><input type="radio" name="f1" value="b"> Courir</label><br>
+    <label><input type="radio" name="f1" value="c"> Beau</label>
+
+    <p><strong>2. Quel temps exprime une action actuelle ?</strong></p>
+    <label><input type="radio" name="f2" value="a"> Le présent</label><br>
+    <label><input type="radio" name="f2" value="b"> Le futur</label><br>
+    <label><input type="radio" name="f2" value="c"> L'imparfait</label>
+
+    <p><strong>3. Dans « Les élèves travaillent », quel est le sujet ?</strong></p>
+    <label><input type="radio" name="f3" value="a"> Travaillent</label><br>
+    <label><input type="radio" name="f3" value="b"> Les élèves</label><br>
+    <label><input type="radio" name="f3" value="c"> Les</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-francais');
+      const r = ['b','a','b'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=f'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-francais').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-francais"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
