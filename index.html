@@ -223,7 +223,41 @@
     Correction : f(4) = 3 × 4 + 2 = 14.
     La bonne réponse est 14.
   </p>
-                                      </section>
+ <section class="carte" id="quiz-maths">
+  <h2>📝 Quiz de mathématiques</h2>
+  <p>Teste tes connaissances sur les fonctions.</p>
+
+  <form id="form-quiz-maths">
+    <p><strong>1. Soit f(x) = 2x + 3. Quelle est l'image de 2 ?</strong></p>
+    <label><input type="radio" name="q1" value="a"> 5</label><br>
+    <label><input type="radio" name="q1" value="b"> 7</label><br>
+    <label><input type="radio" name="q1" value="c"> 8</label>
+
+    <p><strong>2. Quelle est la dérivée de x² ?</strong></p>
+    <label><input type="radio" name="q2" value="a"> x</label><br>
+    <label><input type="radio" name="q2" value="b"> 2x</label><br>
+    <label><input type="radio" name="q2" value="c"> 2</label>
+
+    <p><strong>3. Quelle est la dérivée de 5 ?</strong></p>
+    <label><input type="radio" name="q3" value="a"> 5</label><br>
+    <label><input type="radio" name="q3" value="b"> 1</label><br>
+    <label><input type="radio" name="q3" value="c"> 0</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('form-quiz-maths');
+      let score = 0;
+      const reponses = ['b','b','c'];
+      for (let i = 0; i < 3; i++) {
+        if (f.querySelector('input[name=q'+(i+1)+']:checked')?.value === reponses[i]) score++;
+      }
+      document.getElementById('resultat-quiz-maths').textContent =
+        'Ton résultat : ' + score + ' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-quiz-maths"></h3>
+ </section>                                    
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
