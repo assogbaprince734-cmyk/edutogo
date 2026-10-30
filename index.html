@@ -633,6 +633,67 @@
 
   <h3 id="resultat-francais"></h3>
 </section>
+<section class="carte" id="cours-physique">
+  <h2>⚗️ Cours de physique-chimie</h2>
+  <h3>Chapitre 1 : La quantité de matière</h3>
+
+  <h3>1. Définition</h3>
+  <p>La quantité de matière représente le nombre d'entités chimiques (atomes, molécules ou ions) présentes dans un échantillon.</p>
+  <p>Son unité est la mole (mol).</p>
+
+  <h3>2. La formule</h3>
+  <p>La quantité de matière se calcule avec :</p>
+  <p><strong>n = m / M</strong></p>
+  <ul>
+    <li>n : quantité de matière en mol ;</li>
+    <li>m : masse en grammes (g) ;</li>
+    <li>M : masse molaire en g/mol.</li>
+  </ul>
+
+  <h3>3. Exemple</h3>
+  <p>On possède 18 g d'eau. Sa masse molaire est 18 g/mol.</p>
+  <p>n = 18 / 18 = 1 mol.</p>
+
+  <h3>4. Exercice d'application</h3>
+  <p>Calcule la quantité de matière contenue dans 40 g d'une substance dont la masse molaire est 20 g/mol.</p>
+
+  <button type="button" onclick="document.getElementById('correction-physique').style.display='block'">
+    Voir la correction
+  </button>
+  <p id="correction-physique" style="display:none;">
+    Correction : n = m / M = 40 / 20 = 2 mol.
+  </p>
+
+  <h3>5. Quiz de physique-chimie</h3>
+  <form id="quiz-physique">
+    <p><strong>1. Quelle est l'unité de la quantité de matière ?</strong></p>
+    <label><input type="radio" name="p1" value="a"> Le gramme</label><br>
+    <label><input type="radio" name="p1" value="b"> La mole</label><br>
+    <label><input type="radio" name="p1" value="c"> Le litre</label>
+
+    <p><strong>2. Quelle est la formule de la quantité de matière à partir de la masse ?</strong></p>
+    <label><input type="radio" name="p2" value="a"> n = m / M</label><br>
+    <label><input type="radio" name="p2" value="b"> n = m × M</label><br>
+    <label><input type="radio" name="p2" value="c"> n = M / m</label>
+
+    <p><strong>3. Si m = 40 g et M = 20 g/mol, combien vaut n ?</strong></p>
+    <label><input type="radio" name="p3" value="a"> 1 mol</label><br>
+    <label><input type="radio" name="p3" value="b"> 4 mol</label><br>
+    <label><input type="radio" name="p3" value="c"> 2 mol</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-physique');
+      const r = ['b','a','c'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=p'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-physique').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+  <h3 id="resultat-physique"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
