@@ -583,6 +583,65 @@
   </form>
 
   <h3 id="resultat-philo"></h3>
+<h3>📘 Chapitre 2 : La conscience et l'inconscient</h3>
+
+<h3>1. Définition de la conscience</h3>
+<p>La conscience est la capacité de l'être humain à connaître ce qu'il pense, ressent et fait, ainsi que le monde qui l'entoure.</p>
+
+<h3>2. Les formes de conscience</h3>
+<ul>
+  <li>La conscience immédiate : savoir directement ce que l'on fait ou ressent.</li>
+  <li>La conscience réfléchie : réfléchir sur ses propres pensées et ses actions.</li>
+  <li>La conscience morale : distinguer le bien du mal.</li>
+</ul>
+
+<h3>3. Définition de l'inconscient</h3>
+<p>L'inconscient désigne l'ensemble des phénomènes psychiques qui échappent à la conscience.</p>
+<p>Le psychanalyste Sigmund Freud a beaucoup étudié l'inconscient et son rôle dans la vie humaine.</p>
+
+<h3>4. Conscience et liberté</h3>
+<p>La conscience permet à l'être humain de réfléchir avant d'agir et de prendre des décisions. Cependant, certains comportements peuvent être influencés par des désirs ou des mécanismes inconscients.</p>
+
+<h3>5. Exercice d'application</h3>
+<p>Explique avec tes propres mots la différence entre la conscience et l'inconscient.</p>
+
+<button type="button" onclick="document.getElementById('correction-conscience').style.display='block'">
+  Voir la correction
+</button>
+
+<div id="correction-conscience" style="display:none;">
+  <p><strong>Correction :</strong> La conscience permet de connaître ses pensées et ses actes. L'inconscient désigne des phénomènes psychiques qui échappent à la conscience.</p>
+</div>
+
+<h3>6. Quiz : conscience et inconscient</h3>
+<form id="quiz-conscience">
+  <p><strong>1. Qu'est-ce que la conscience ?</strong></p>
+  <label><input type="radio" name="c1" value="a"> La capacité de connaître ses pensées et ses actes</label><br>
+  <label><input type="radio" name="c1" value="b"> Le sommeil uniquement</label><br>
+  <label><input type="radio" name="c1" value="c"> L'absence de pensée</label>
+
+  <p><strong>2. Quel penseur a particulièrement étudié l'inconscient ?</strong></p>
+  <label><input type="radio" name="c2" value="a"> Platon</label><br>
+  <label><input type="radio" name="c2" value="b"> Sigmund Freud</label><br>
+  <label><input type="radio" name="c2" value="c"> Socrate</label>
+
+  <p><strong>3. La conscience morale permet de distinguer :</strong></p>
+  <label><input type="radio" name="c3" value="a"> Le jour et la nuit</label><br>
+  <label><input type="radio" name="c3" value="b"> Le vrai et le faux uniquement</label><br>
+  <label><input type="radio" name="c3" value="c"> Le bien et le mal</label>
+
+  <br>
+  <button type="button" onclick="
+    const f = document.getElementById('quiz-conscience');
+    const r = ['a','b','c'];
+    let s = 0;
+    for(let i=0;i<3;i++){
+      if(f.querySelector('input[name=c'+(i+1)+']:checked')?.value===r[i]) s++;
+    }
+    document.getElementById('resultat-conscience').textContent='Ton résultat : '+s+' / 3';
+  ">Corriger mon quiz</button>
+</form>
+<h3 id="resultat-conscience"></h3>
 </section>
 <section class="carte" id="cours-geographie">
   <h2>🌍 Géographie du Togo</h2>
