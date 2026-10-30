@@ -320,6 +320,68 @@
   ">Corriger mon quiz</button>
 </form>
 <h3 id="resultat-domaine"></h3>
+ <h3>📘 Chapitre 3 : Images et antécédents</h3>
+
+<h3>1. L'image d'un nombre</h3>
+<p>L'image d'un nombre x par une fonction f est le résultat obtenu lorsqu'on remplace x dans l'expression de f.</p>
+
+<p><strong>Exemple :</strong> Soit f(x) = 2x + 3.</p>
+<p>Calculons l'image de 4 :</p>
+<p>f(4) = 2 × 4 + 3 = 11.</p>
+<p>L'image de 4 est donc 11.</p>
+
+<h3>2. L'antécédent d'un nombre</h3>
+<p>L'antécédent d'un nombre y est la valeur de x qui donne y lorsqu'on calcule f(x).</p>
+
+<p><strong>Exemple :</strong> Soit f(x) = 2x + 3. Cherchons l'antécédent de 9.</p>
+<p>2x + 3 = 9</p>
+<p>2x = 9 - 3 = 6</p>
+<p>x = 6 / 2 = 3.</p>
+<p>L'antécédent de 9 est donc 3.</p>
+
+<h3>3. Exercices d'application</h3>
+<p><strong>Exercice 1 :</strong> Soit f(x) = 3x + 2. Calcule l'image de 5.</p>
+<p><strong>Exercice 2 :</strong> Soit g(x) = 2x + 4. Trouve l'antécédent de 12.</p>
+<p><strong>Exercice 3 :</strong> Soit h(x) = 5x - 1. Calcule l'image de 2.</p>
+
+<button type="button" onclick="document.getElementById('correction-images').style.display='block'">
+  Voir les corrections
+</button>
+
+<div id="correction-images" style="display:none;">
+  <p><strong>Exercice 1 :</strong> f(5) = 3 × 5 + 2 = 17.</p>
+  <p><strong>Exercice 2 :</strong> 2x + 4 = 12, donc 2x = 8 et x = 4.</p>
+  <p><strong>Exercice 3 :</strong> h(2) = 5 × 2 - 1 = 9.</p>
+</div>
+
+<h3>4. Quiz : images et antécédents</h3>
+<form id="quiz-images">
+  <p><strong>1. Soit f(x) = 2x + 1. Quelle est l'image de 3 ?</strong></p>
+  <label><input type="radio" name="i1" value="a"> 5</label><br>
+  <label><input type="radio" name="i1" value="b"> 7</label><br>
+  <label><input type="radio" name="i1" value="c"> 6</label><br>
+
+  <p><strong>2. Soit f(x) = 3x. Quel est l'antécédent de 12 ?</strong></p>
+  <label><input type="radio" name="i2" value="a"> 3</label><br>
+  <label><input type="radio" name="i2" value="b"> 4</label><br>
+  <label><input type="radio" name="i2" value="c"> 6</label><br>
+
+  <p><strong>3. Soit f(x) = 5x - 2. Quelle est l'image de 2 ?</strong></p>
+  <label><input type="radio" name="i3" value="a"> 8</label><br>
+  <label><input type="radio" name="i3" value="b"> 10</label><br>
+  <label><input type="radio" name="i3" value="c"> 12</label><br>
+
+  <button type="button" onclick="
+    const f = document.getElementById('quiz-images');
+    const r = ['b','b','a'];
+    let s = 0;
+    for(let i=0;i<3;i++){
+      if(f.querySelector('input[name=i'+(i+1)+']:checked')?.value===r[i]) s++;
+    }
+    document.getElementById('resultat-images').textContent='Ton résultat : '+s+' / 3';
+  ">Corriger mon quiz</button>
+</form>
+<h3 id="resultat-images"></h3>
  </section>                                    
 <section class="carte" id="cours-philo">
   <h2>📚 Cours de philosophie</h2>
