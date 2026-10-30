@@ -403,6 +403,94 @@
 
   <h3 id="resultat-geo"></h3>
 </section>
+<section class="carte" id="cours-histoire">
+  <h2>📖 Cours d'histoire</h2>
+  <h3>Chapitre 1 : L'Organisation des Nations unies (ONU)</h3>
+
+  <h3>1. La naissance de l'ONU</h3>
+  <p>
+    L'Organisation des Nations unies (ONU) a été créée le
+    24 octobre 1945, après la Seconde Guerre mondiale.
+    Elle remplace la Société des Nations, qui n'avait pas
+    réussi à empêcher une nouvelle guerre mondiale.
+  </p>
+
+  <h3>2. Les objectifs de l'ONU</h3>
+  <ul>
+    <li>Maintenir la paix et la sécurité internationales.</li>
+    <li>Développer les relations amicales entre les États.</li>
+    <li>Défendre les droits de l'homme.</li>
+    <li>Favoriser la coopération entre les pays.</li>
+  </ul>
+
+  <h3>3. Les grands principes</h3>
+  <ul>
+    <li>L'égalité souveraine de tous les États membres.</li>
+    <li>Le règlement pacifique des conflits.</li>
+    <li>Le respect des engagements internationaux.</li>
+    <li>Le refus de la menace ou de l'emploi de la force contre un État.</li>
+  </ul>
+
+  <h3>4. Le fonctionnement de l'ONU</h3>
+  <p>
+    L'ONU possède six organes principaux :
+    l'Assemblée générale, le Conseil de sécurité,
+    le Conseil économique et social, le Conseil de tutelle,
+    la Cour internationale de Justice et le Secrétariat.
+  </p>
+
+  <h3>5. Bilan et perspectives</h3>
+  <p>
+    L'ONU contribue au maintien de la paix, à l'aide humanitaire,
+    à la santé et à l'éducation. Cependant, elle rencontre
+    des difficultés face à certains conflits.
+    Son avenir dépend notamment du renforcement de la coopération
+    internationale et de ses moyens d'action.
+  </p>
+
+  <h3>6. Exercice d'application</h3>
+  <p>En quelle année l'ONU a-t-elle été créée ?</p>
+
+  <button type="button" onclick="document.getElementById('correction-onu').style.display='block'">
+    Voir la correction
+  </button>
+
+  <p id="correction-onu" style="display:none;">
+    Correction : l'ONU a été créée en 1945 et est officiellement
+    entrée en fonction le 24 octobre 1945.
+  </p>
+
+  <h3>7. Quiz d'histoire</h3>
+  <form id="quiz-onu">
+    <p><strong>1. En quelle année l'ONU a-t-elle été créée ?</strong></p>
+    <label><input type="radio" name="o1" value="a"> 1919</label><br>
+    <label><input type="radio" name="o1" value="b"> 1945</label><br>
+    <label><input type="radio" name="o1" value="c"> 1960</label>
+
+    <p><strong>2. Quel est l'objectif principal de l'ONU ?</strong></p>
+    <label><input type="radio" name="o2" value="a"> Faire la guerre</label><br>
+    <label><input type="radio" name="o2" value="b"> Dominer les pays</label><br>
+    <label><input type="radio" name="o2" value="c"> Maintenir la paix</label>
+
+    <p><strong>3. Combien d'organes principaux possède l'ONU ?</strong></p>
+    <label><input type="radio" name="o3" value="a"> 4</label><br>
+    <label><input type="radio" name="o3" value="b"> 6</label><br>
+    <label><input type="radio" name="o3" value="c"> 10</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-onu');
+      const r = ['b','c','b'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=o'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-onu').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-onu"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
