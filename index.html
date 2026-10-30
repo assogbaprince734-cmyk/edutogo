@@ -382,6 +382,67 @@
   ">Corriger mon quiz</button>
 </form>
 <h3 id="resultat-images"></h3>
+<h3>📘 Chapitre 4 : Sens de variation d'une fonction</h3>
+
+<h3>1. Fonction croissante</h3>
+<p>Une fonction est croissante sur un intervalle lorsque, quand x augmente, les valeurs de f(x) augmentent aussi.</p>
+<p>Exemple : f(x) = 2x. Plus x augmente, plus f(x) augmente.</p>
+
+<h3>2. Fonction décroissante</h3>
+<p>Une fonction est décroissante lorsque, quand x augmente, les valeurs de f(x) diminuent.</p>
+<p>Exemple : g(x) = -3x. Plus x augmente, plus g(x) diminue.</p>
+
+<h3>3. Fonction constante</h3>
+<p>Une fonction est constante lorsque ses valeurs ne changent pas, même si x augmente.</p>
+<p>Exemple : h(x) = 5.</p>
+
+<h3>4. Tableau de variation</h3>
+<p>Un tableau de variation permet de présenter les intervalles sur lesquels une fonction augmente ou diminue.</p>
+
+<h3>5. Exercices d'application</h3>
+<p><strong>Exercice 1 :</strong> La fonction f(x) = 4x est-elle croissante ou décroissante sur ℝ ?</p>
+<p><strong>Exercice 2 :</strong> La fonction g(x) = -2x est-elle croissante ou décroissante sur ℝ ?</p>
+<p><strong>Exercice 3 :</strong> La fonction h(x) = 7 est-elle croissante, décroissante ou constante ?</p>
+
+<button type="button" onclick="document.getElementById('correction-variation').style.display='block'">
+  Voir les corrections
+</button>
+
+<div id="correction-variation" style="display:none;">
+  <p><strong>Exercice 1 :</strong> f(x) = 4x est croissante car son coefficient directeur est positif.</p>
+  <p><strong>Exercice 2 :</strong> g(x) = -2x est décroissante car son coefficient directeur est négatif.</p>
+  <p><strong>Exercice 3 :</strong> h(x) = 7 est constante.</p>
+</div>
+
+<h3>6. Quiz : sens de variation</h3>
+<form id="quiz-variation">
+  <p><strong>1. Une fonction croissante :</strong></p>
+  <label><input type="radio" name="v1" value="a"> Diminue quand x augmente</label><br>
+  <label><input type="radio" name="v1" value="b"> Augmente quand x augmente</label><br>
+  <label><input type="radio" name="v1" value="c"> Ne change jamais</label>
+
+  <p><strong>2. La fonction f(x) = -5x est :</strong></p>
+  <label><input type="radio" name="v2" value="a"> Croissante</label><br>
+  <label><input type="radio" name="v2" value="b"> Constante</label><br>
+  <label><input type="radio" name="v2" value="c"> Décroissante</label>
+
+  <p><strong>3. La fonction f(x) = 9 est :</strong></p>
+  <label><input type="radio" name="v3" value="a"> Constante</label><br>
+  <label><input type="radio" name="v3" value="b"> Croissante</label><br>
+  <label><input type="radio" name="v3" value="c"> Décroissante</label>
+
+  <br>
+  <button type="button" onclick="
+    const f = document.getElementById('quiz-variation');
+    const r = ['b','c','a'];
+    let s = 0;
+    for(let i=0;i<3;i++){
+      if(f.querySelector('input[name=v'+(i+1)+']:checked')?.value===r[i]) s++;
+    }
+    document.getElementById('resultat-variation').textContent='Ton résultat : '+s+' / 3';
+  ">Corriger mon quiz</button>
+</form>
+<h3 id="resultat-variation"></h3>
  </section>                                    
 <section class="carte" id="cours-philo">
   <h2>📚 Cours de philosophie</h2>
