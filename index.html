@@ -695,6 +695,63 @@
   </form>
   <h3 id="resultat-physique"></h3>
 </section>
+<section class="carte" id="cours-svt">
+  <h2>🌱 Cours de SVT</h2>
+  <h3>Chapitre 1 : La cellule</h3>
+
+  <h3>1. Définition</h3>
+  <p>La cellule est l'unité de base structurale et fonctionnelle de tout être vivant.</p>
+
+  <h3>2. Les principales parties de la cellule</h3>
+  <ul>
+    <li>La membrane cellulaire : délimite la cellule.</li>
+    <li>Le cytoplasme : contient les éléments de la cellule.</li>
+    <li>Le noyau : contient l'information génétique chez les cellules qui en possèdent un.</li>
+  </ul>
+
+  <h3>3. Les types de cellules</h3>
+  <p>Les cellules végétales possèdent notamment une paroi cellulaire et des chloroplastes. Les cellules animales n'en possèdent pas.</p>
+
+  <h3>4. Exercice d'application</h3>
+  <p>Quelle partie de la cellule contient l'information génétique chez une cellule animale ?</p>
+
+  <button type="button" onclick="document.getElementById('correction-svt').style.display='block'">
+    Voir la correction
+  </button>
+  <p id="correction-svt" style="display:none;">
+    Correction : le noyau contient l'information génétique.
+  </p>
+
+  <h3>5. Quiz de SVT</h3>
+  <form id="quiz-svt">
+    <p><strong>1. Quelle est l'unité de base du vivant ?</strong></p>
+    <label><input type="radio" name="s1" value="a"> L'organe</label><br>
+    <label><input type="radio" name="s1" value="b"> La cellule</label><br>
+    <label><input type="radio" name="s1" value="c"> Le tissu</label>
+
+    <p><strong>2. Quelle partie délimite la cellule ?</strong></p>
+    <label><input type="radio" name="s2" value="a"> La membrane</label><br>
+    <label><input type="radio" name="s2" value="b"> Le noyau</label><br>
+    <label><input type="radio" name="s2" value="c"> Le cytoplasme</label>
+
+    <p><strong>3. Quelle structure est présente dans les cellules végétales et absente des cellules animales ?</strong></p>
+    <label><input type="radio" name="s3" value="a"> Le noyau</label><br>
+    <label><input type="radio" name="s3" value="b"> La membrane</label><br>
+    <label><input type="radio" name="s3" value="c"> La paroi cellulaire</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-svt');
+      const r = ['b','a','c'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=s'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-svt').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+  <h3 id="resultat-svt"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
