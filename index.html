@@ -502,6 +502,67 @@
     <li><a href="#cours-histoire">Histoire – ONU</a></li>
   </ul>
 </section>
+<section class="carte" id="cours-anglais">
+  <h2>🇬🇧 Cours d'anglais</h2>
+  <h3>Chapter 1: Greetings and introductions</h3>
+
+  <h3>1. Greetings (Salutations)</h3>
+  <ul>
+    <li>Hello = Bonjour</li>
+    <li>Good morning = Bonjour (le matin)</li>
+    <li>Good afternoon = Bonjour (l'après-midi)</li>
+    <li>Good evening = Bonsoir</li>
+    <li>Goodbye = Au revoir</li>
+  </ul>
+
+  <h3>2. Introducing yourself (Se présenter)</h3>
+  <ul>
+    <li>My name is Prince = Je m'appelle Prince.</li>
+    <li>I am a student = Je suis étudiant.</li>
+    <li>I come from Togo = Je viens du Togo.</li>
+    <li>I am 18 years old = J'ai 18 ans.</li>
+  </ul>
+
+  <h3>3. Exercise</h3>
+  <p>Comment dit-on « Je suis étudiant » en anglais ?</p>
+  <button type="button" onclick="document.getElementById('correction-anglais').style.display='block'">
+    Voir la correction
+  </button>
+  <p id="correction-anglais" style="display:none;">
+    Correction : I am a student.
+  </p>
+
+  <h3>4. English quiz</h3>
+  <form id="quiz-anglais">
+    <p><strong>1. Que signifie Hello ?</strong></p>
+    <label><input type="radio" name="a1" value="a"> Au revoir</label><br>
+    <label><input type="radio" name="a1" value="b"> Bonjour</label><br>
+    <label><input type="radio" name="a1" value="c"> Merci</label>
+
+    <p><strong>2. Comment dit-on « Je suis étudiant » ?</strong></p>
+    <label><input type="radio" name="a2" value="a"> I am a student</label><br>
+    <label><input type="radio" name="a2" value="b"> I am happy</label><br>
+    <label><input type="radio" name="a2" value="c"> Goodbye</label>
+
+    <p><strong>3. Que signifie Goodbye ?</strong></p>
+    <label><input type="radio" name="a3" value="a"> Bonjour</label><br>
+    <label><input type="radio" name="a3" value="b"> Merci</label><br>
+    <label><input type="radio" name="a3" value="c"> Au revoir</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-anglais');
+      const r = ['b','a','c'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=a'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-anglais').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-anglais"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
