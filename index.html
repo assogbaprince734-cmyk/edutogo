@@ -443,6 +443,75 @@
   ">Corriger mon quiz</button>
 </form>
 <h3 id="resultat-variation"></h3>
+<h3>📘 Chapitre 5 : Les dérivées et leurs applications</h3>
+
+<h3>1. Définition</h3>
+<p>La dérivée d'une fonction mesure la variation instantanée de cette fonction. Elle permet notamment d'étudier son sens de variation.</p>
+
+<h3>2. Formules essentielles</h3>
+<ul>
+  <li>Si f(x) = k, alors f'(x) = 0.</li>
+  <li>Si f(x) = x, alors f'(x) = 1.</li>
+  <li>Si f(x) = x², alors f'(x) = 2x.</li>
+  <li>Si f(x) = x³, alors f'(x) = 3x².</li>
+  <li>Si f(x) = ax + b, alors f'(x) = a.</li>
+</ul>
+
+<h3>3. Exemples de calcul</h3>
+<p><strong>Exemple 1 :</strong> f(x) = 3x² + 2x - 5.</p>
+<p>f'(x) = 6x + 2.</p>
+
+<p><strong>Exemple 2 :</strong> g(x) = 5x³ - 4x.</p>
+<p>g'(x) = 15x² - 4.</p>
+
+<h3>4. Utilisation de la dérivée</h3>
+<p>Sur un intervalle, si f'(x) est positive, f est croissante. Si f'(x) est négative, f est décroissante.</p>
+<p>Si f'(x) = 0 sur tout un intervalle, f est constante sur cet intervalle.</p>
+
+<h3>5. Exercices d'application</h3>
+<p><strong>Exercice 1 :</strong> Calcule la dérivée de f(x) = 4x² + 3x - 2.</p>
+<p><strong>Exercice 2 :</strong> Calcule la dérivée de g(x) = 2x³ + 5x.</p>
+<p><strong>Exercice 3 :</strong> Soit h(x) = -3x + 7. Calcule h'(x).</p>
+
+<button type="button" onclick="document.getElementById('correction-derivees').style.display='block'">
+  Voir les corrections
+</button>
+
+<div id="correction-derivees" style="display:none;">
+  <p><strong>Exercice 1 :</strong> f'(x) = 8x + 3.</p>
+  <p><strong>Exercice 2 :</strong> g'(x) = 6x² + 5.</p>
+  <p><strong>Exercice 3 :</strong> h'(x) = -3.</p>
+</div>
+
+<h3>6. Quiz : les dérivées</h3>
+<form id="quiz-derivees">
+  <p><strong>1. Quelle est la dérivée de x² ?</strong></p>
+  <label><input type="radio" name="r1" value="a"> x</label><br>
+  <label><input type="radio" name="r1" value="b"> 2x</label><br>
+  <label><input type="radio" name="r1" value="c"> 2</label>
+
+  <p><strong>2. Quelle est la dérivée de 5x + 3 ?</strong></p>
+  <label><input type="radio" name="r2" value="a"> 5</label><br>
+  <label><input type="radio" name="r2" value="b"> 3</label><br>
+  <label><input type="radio" name="r2" value="c"> 5x</label>
+
+  <p><strong>3. Si f'(x) est positive sur un intervalle, f est :</strong></p>
+  <label><input type="radio" name="r3" value="a"> Décroissante</label><br>
+  <label><input type="radio" name="r3" value="b"> Constante</label><br>
+  <label><input type="radio" name="r3" value="c"> Croissante</label>
+
+  <br>
+  <button type="button" onclick="
+    const f = document.getElementById('quiz-derivees');
+    const r = ['b','a','c'];
+    let s = 0;
+    for(let i=0;i<3;i++){
+      if(f.querySelector('input[name=r'+(i+1)+']:checked')?.value===r[i]) s++;
+    }
+    document.getElementById('resultat-derivees').textContent='Ton résultat : '+s+' / 3';
+  ">Corriger mon quiz</button>
+</form>
+<h3 id="resultat-derivees"></h3>
  </section>                                    
 <section class="carte" id="cours-philo">
   <h2>📚 Cours de philosophie</h2>
