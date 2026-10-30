@@ -329,6 +329,80 @@
 
   <h3 id="resultat-philo"></h3>
 </section>
+<section class="carte" id="cours-geographie">
+  <h2>🌍 Géographie du Togo</h2>
+  <h3>Chapitre 1 : Le relief, le climat, l'hydrographie et la végétation</h3>
+
+  <h3>1. Le relief du Togo</h3>
+  <p>
+    Le relief du Togo est varié. On distingue les plaines,
+    les plateaux et les montagnes. La chaîne de l'Atakora
+    traverse notamment la partie centrale du pays.
+  </p>
+
+  <h3>2. Le climat du Togo</h3>
+  <p>
+    Le Togo connaît principalement un climat tropical.
+    Le sud connaît généralement deux saisons pluvieuses
+    et deux saisons sèches, tandis que le nord connaît
+    principalement une saison pluvieuse et une saison sèche.
+  </p>
+
+  <h3>3. L'hydrographie du Togo</h3>
+  <p>
+    Le réseau hydrographique comprend plusieurs cours d'eau.
+    Les deux grands fleuves sont le Mono et l'Oti.
+  </p>
+
+  <h3>4. La végétation du Togo</h3>
+  <p>
+    La végétation varie selon les régions et le climat.
+    On rencontre des forêts, des savanes et des formations
+    végétales de zones humides.
+  </p>
+
+  <h3>5. Exercice d'application</h3>
+  <p>Cite les deux grands fleuves du Togo.</p>
+
+  <button type="button" onclick="document.getElementById('correction-geo').style.display='block'">
+    Voir la correction
+  </button>
+
+  <p id="correction-geo" style="display:none;">
+    Correction : les deux grands fleuves sont le Mono et l'Oti.
+  </p>
+
+  <h3>6. Quiz de géographie</h3>
+  <form id="quiz-geo">
+    <p><strong>1. Quelle chaîne montagneuse traverse le centre du Togo ?</strong></p>
+    <label><input type="radio" name="g1" value="a"> L'Atakora</label><br>
+    <label><input type="radio" name="g1" value="b"> Les Alpes</label><br>
+    <label><input type="radio" name="g1" value="c"> L'Himalaya</label>
+
+    <p><strong>2. Quel est l'un des grands fleuves du Togo ?</strong></p>
+    <label><input type="radio" name="g2" value="a"> Le Nil</label><br>
+    <label><input type="radio" name="g2" value="b"> Le Mono</label><br>
+    <label><input type="radio" name="g2" value="c"> Le Congo</label>
+
+    <p><strong>3. Quel type de climat domine au Togo ?</strong></p>
+    <label><input type="radio" name="g3" value="a"> Polaire</label><br>
+    <label><input type="radio" name="g3" value="b"> Désertique froid</label><br>
+    <label><input type="radio" name="g3" value="c"> Tropical</label>
+
+    <br>
+    <button type="button" onclick="
+      const f = document.getElementById('quiz-geo');
+      const r = ['a','b','c'];
+      let s = 0;
+      for(let i=0;i<3;i++){
+        if(f.querySelector('input[name=g'+(i+1)+']:checked')?.value===r[i]) s++;
+      }
+      document.getElementById('resultat-geo').textContent='Ton résultat : '+s+' / 3';
+    ">Corriger mon quiz</button>
+  </form>
+
+  <h3 id="resultat-geo"></h3>
+</section>
 </main>
   <section class="carte" id="apropos">
   <h2>À propos de EduTogo</h2>
