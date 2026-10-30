@@ -257,6 +257,69 @@
   </form>
 
   <h3 id="resultat-quiz-maths"></h3>
+<h3>📘 Chapitre 2 : Domaine de définition</h3>
+
+<h3>1. Définition</h3>
+<p>Le domaine de définition d'une fonction est l'ensemble des valeurs de x pour lesquelles la fonction existe.</p>
+
+<h3>2. Quelques règles importantes</h3>
+<ul>
+  <li>Une fonction polynôme est définie sur ℝ.</li>
+  <li>Une fraction existe lorsque son dénominateur est différent de zéro.</li>
+  <li>Une racine carrée existe lorsque son expression est positive ou nulle.</li>
+</ul>
+
+<h3>3. Exemples expliqués</h3>
+<p><strong>Exemple 1 :</strong> f(x) = 2x + 3.</p>
+<p>Cette fonction est définie pour tout nombre réel. Donc Df = ℝ.</p>
+
+<p><strong>Exemple 2 :</strong> g(x) = 1 / (x - 2).</p>
+<p>Le dénominateur ne doit pas être nul. Donc x ≠ 2.</p>
+<p>Le domaine est ℝ privé de 2.</p>
+
+<p><strong>Exemple 3 :</strong> h(x) = √(x - 3).</p>
+<p>Il faut x - 3 ≥ 0, donc x ≥ 3.</p>
+
+<h3>4. Exercices d'application</h3>
+<p><strong>Exercice 1 :</strong> Détermine le domaine de définition de f(x) = 5x + 4.</p>
+<p><strong>Exercice 2 :</strong> Détermine le domaine de définition de g(x) = 1 / (x + 4).</p>
+<p><strong>Exercice 3 :</strong> Détermine le domaine de définition de h(x) = √(x - 5).</p>
+
+<button type="button" onclick="document.getElementById('correction-domaine').style.display='block'">
+  Voir les corrections
+</button>
+
+<div id="correction-domaine" style="display:none;">
+  <p><strong>Exercice 1 :</strong> Df = ℝ.</p>
+  <p><strong>Exercice 2 :</strong> x ≠ -4. Le domaine est ℝ privé de -4.</p>
+  <p><strong>Exercice 3 :</strong> x ≥ 5. Le domaine est [5 ; +∞[.</p>
+</div>
+
+<h3>5. Quiz : domaine de définition</h3>
+<form id="quiz-domaine">
+  <p><strong>1. Une fonction polynôme est définie sur :</strong></p>
+  <label><input type="radio" name="d1" value="a"> ℝ</label><br>
+  <label><input type="radio" name="d1" value="b"> Seulement les nombres positifs</label><br>
+
+  <p><strong>2. Pour f(x) = 1 / (x - 3), quelle valeur est interdite ?</strong></p>
+  <label><input type="radio" name="d2" value="a"> 0</label><br>
+  <label><input type="radio" name="d2" value="b"> 3</label><br>
+
+  <p><strong>3. Pour √(x - 2), il faut :</strong></p>
+  <label><input type="radio" name="d3" value="a"> x ≥ 2</label><br>
+  <label><input type="radio" name="d3" value="b"> x ≤ 2</label><br>
+
+  <button type="button" onclick="
+    const f = document.getElementById('quiz-domaine');
+    const r = ['a','b','a'];
+    let s = 0;
+    for(let i=0;i<3;i++){
+      if(f.querySelector('input[name=d'+(i+1)+']:checked')?.value===r[i]) s++;
+    }
+    document.getElementById('resultat-domaine').textContent='Ton résultat : '+s+' / 3';
+  ">Corriger mon quiz</button>
+</form>
+<h3 id="resultat-domaine"></h3>
  </section>                                    
 <section class="carte" id="cours-philo">
   <h2>📚 Cours de philosophie</h2>
