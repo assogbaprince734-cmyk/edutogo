@@ -114,7 +114,7 @@
     }
   </style>
 </head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <body>
 <section style="background:#087f5b;color:white;padding:25px 15px;text-align:center;border-radius:15px;margin-bottom:20px;">
   <h2>Bienvenue sur EduTogo 🇹🇬</h2>
@@ -1441,11 +1441,6 @@
 
     <p><strong>2. Quel temps exprime une action actuelle ?</strong></p>
     <label><input type="radio" name="f2" value="a"> Le présent</label><br>
-    <label><input type="radio" name="f2" value="b"> Le futur</label><br>
-    <label><input type="radio" name="f2" value="c"> L'imparfait</label>
-
-    <p><strong>3. Dans « Les élèves travaillent », quel est le sujet ?</strong></p>
-    <label><input type="radio" name="f3" value="a"> Travaillent</label><br>
     <label><input type="radio" name="f3" value="b"> Les élèves</label><br>
     <label><input type="radio" name="f3" value="c"> Les</label>
 
@@ -2196,7 +2191,39 @@ Des services publicitaires comme Google AdSense pourront utiliser des cookies co
         lien.target = "_blank";
         lien.rel = "noopener noreferrer";
 
-        carte.append(titre, description, lien);
+      if (r.type === "cours") {
+  const boutonPDF = document.createElement("button");
+  boutonPDF.textContent = "📥 Télécharger en PDF";
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+
+doc.setFontSize(18);
+doc.text(r.titre, 15, 20);
+
+doc.setFontSize(12);
+const lignes = doc.splitTextToSize(r.description, 180);
+doc.text(lignes, 15, 35);
+
+doc.save("EduTogo-" + r.titre + ".pdf");
+  
+    const contenu = r.titre + "\n\n" + r.description;
+    const fichier = new Blob([contenu], {
+      type: "text/plain;charset=utf-8"
+    });
+
+    const url = URL.createObjectURL(fichier); 
+    const telechargement = document.createElement("a");
+
+    telechargement.href = url;
+    telechargement.download = r.titre + ".txt";
+    telechargement.click();
+
+    URL.revokeObjectURL(url);
+  };
+
+  carte.appendChild(boutonPDF);
+                                 }  
+       carte.append(titre, description, lien);
         zone.appendChild(carte);
       });
     }
