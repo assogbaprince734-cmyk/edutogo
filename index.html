@@ -148,12 +148,12 @@
       <div class="carte">
   <h2>📚 Nos matières</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-    <div class="carte">📐 Mathématiques</div>
-    <div class="carte">📖 Français</div>
-    <div class="carte">🇬🇧 Anglais</div>
-    <div class="carte">🌍 Histoire-Géographie</div>
-    <div class="carte">🧠 Philosophie</div>
-    <div class="carte">🔬 Sciences physiques</div>
+ <div onclick="choisirMatiere('Mathématiques')">📐 Mathématiques</div>
+<div onclick="choisirMatiere('Français')">📖 Français</div>
+<div onclick="choisirMatiere('Anglais')">🇬🇧 Anglais</div>
+<div onclick="choisirMatiere('Histoire-Géographie')">🌍 Histoire-Géographie</div>
+<div onclick="choisirMatiere('Philosophie')">🧠 Philosophie</div>
+<div onclick="choisirMatiere('Sciences physiques')">🔬 Sciences physiques</div>
   </div>
       </div>  
        <select id="type" aria-label="Type de ressource">
@@ -2128,6 +2128,10 @@ Des services publicitaires comme Google AdSense pourront utiliser des cookies co
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .trim();
+    function choisirMatiere(matiere) {
+  document.getElementById("recherche").value = matiere;
+  chercher();
+    }
     }
 
     function chercher() {
