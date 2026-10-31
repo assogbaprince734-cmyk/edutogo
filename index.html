@@ -2018,98 +2018,114 @@ Des services publicitaires comme Google AdSense pourront utiliser des cookies co
     const ressources = [
       {
         matiere: "Mathématiques",
-        type: "cours",
+      classe: "Terminale A4",
+       type: "cours",
         titre: "Cours de mathématiques",
         description: "Leçons et notions de mathématiques.",
         recherche: "cours mathématiques programme scolaire Togo"
       },
       {
         matiere: "Mathématiques",
-        type: "exercices",
+       classe: "Terminale A4", 
+       type: "exercices",
         titre: "Exercices de mathématiques",
         description: "Exercices pour réviser et s'entraîner.",
         recherche: "exercices corrigés mathématiques lycée"
       },
       {
         matiere: "Français",
-        type: "cours",
+     classe: "Terminale A4",  
+       type: "cours",
         titre: "Cours de français",
         description: "Grammaire, conjugaison et littérature.",
         recherche: "cours de français lycée grammaire littérature"
       },
       {
         matiere: "Français",
-        type: "exercices",
+       classe: "Terminale A4", 
+       type: "exercices",
         titre: "Exercices de français",
         description: "Entraînement en grammaire et expression.",
         recherche: "exercices corrigés français lycée"
       },
       {
         matiere: "Anglais",
-        type: "cours",
+       classe: "Terminale A4",
+       type: "cours",
         titre: "Cours d'anglais",
         description: "Vocabulaire et grammaire anglaise.",
         recherche: "cours anglais lycée grammaire vocabulaire"
       },
       {
         matiere: "Anglais",
-        type: "exercices",
-        titre: "Exercices d'anglais",
+        classe: "Terminale A4",
+       type: "exercices",
+       classe: "Terminale A4",
+       titre: "Exercices d'anglais",
         description: "Pratique de la langue anglaise.",
         recherche: "exercices corrigés anglais lycée"
       },
       {
         matiere: "Philosophie",
-        type: "cours",
-        titre: "Cours de philosophie",
+        classe: "Terminale A4",
+       type: "cours",
+       
+      titre: "Cours de philosophie",
         description: "Notions, auteurs et méthodes.",
         recherche: "cours philosophie terminale notions auteurs"
       },
       {
         matiere: "Philosophie",
-        type: "exercices",
+       classe: "Terminale A4",
+       type: "exercices",
         titre: "Exercices de philosophie",
         description: "Sujets de dissertation et explication de texte.",
         recherche: "sujets corrigés philosophie terminale"
       },
       {
         matiere: "Histoire",
-        type: "cours",
+        classe: "Terminale A4",
+       type: "cours",
         titre: "Cours d'histoire",
         description: "Leçons d'histoire pour les élèves.",
         recherche: "cours histoire lycée Afrique Togo"
       },
       {
         matiere: "Histoire",
-        type: "exercices",
+        classe: "Terminale A4",
+       type: "exercices",
         titre: "Exercices d'histoire",
         description: "Questions et sujets de révision.",
         recherche: "exercices histoire lycée corrigés"
       },
       {
         matiere: "Géographie",
-        type: "cours",
+        classe: "Terminale A4",
+       type: "cours",
         titre: "Cours de géographie",
         description: "Géographie générale et géographie du Togo.",
         recherche: "cours géographie Togo lycée"
       },
       {
         matiere: "Géographie",
-        type: "exercices",
+        classe: "Terminale A4",
+       type: "exercices",
         titre: "Exercices de géographie",
         description: "Questions et exercices de révision.",
         recherche: "exercices géographie lycée corrigés"
       },
       {
         matiere: "Sciences",
-        type: "cours",
+        classe: "Terminale A4",
+       type: "cours",
         titre: "Cours de sciences",
         description: "Notions scientifiques et révisions.",
         recherche: "cours sciences physiques lycée"
       },
       {
         matiere: "Sciences",
-        type: "exercices",
+       classe: "Terminale A4",
+       type: "exercices",
         titre: "Exercices de sciences",
         description: "Exercices scientifiques corrigés.",
         recherche: "exercices corrigés sciences physiques lycée"
@@ -2149,8 +2165,9 @@ Des services publicitaires comme Google AdSense pourront utiliser des cookies co
     }
 
     function chercher() {
-      const mot = normaliser(champ.value);
-      const type = selectType.value;
+     const mot = normaliser(champ.value);
+     const classe = document.getElementById("classe").value;
+     const type = selectType.value;
 
       const trouves = ressources.filter(function(r) {
         const matiere = normaliser(r.matiere);
@@ -2163,8 +2180,7 @@ Des services publicitaires comme Google AdSense pourront utiliser des cookies co
           titre.includes(mot) ||
           description.includes(mot);
 
-        return correspond && r.type === type;
-      });
+        return correspond && r.type === type && (!classe || r.classe === classe);
 
       if (trouves.length === 0) {
         zone.innerHTML =
